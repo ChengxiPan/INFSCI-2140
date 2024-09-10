@@ -10,36 +10,41 @@ class TrectextCollection:
 
     def __init__(self):
         # 1. Open the file in Path.DataTextDir.
-        self.file = open(Path.DataTextDir, 'r')
+        self.file = open(Path.DataTextDir, 'r', encoding='utf-8')
         # 2. Make preparation for function nextDocument().
         # NT: you cannot load the whole corpus into memory!!
-        return
 
     def nextDocument(self):
         # 1. When called, this API processes one document from corpus, and returns its TEXT number and content.
         # 2. When no document left, return null, and close the file.
         docNo = ""
         content = ""
-        in_doc_flag = False # identify whether in <TEXT></TEXT>
+        in_content_flag = False
         
-        for line in tqdm(self.file, desc="TrectextCollection"):
+        for line in tqdm(self.file, desc="TrectestCollection"):
             line = line.strip()# remove blank
-            if(line == "<TEXT>"):
-                # Now Enter <TEXT></TEXT>
-                in_doc_flag = True
+            if(line == "<DOC>"):
+                # Now Enter <DOC></DOC>
                 # reInit
                 docNo = ""
-                content = ""                
+                content = ""
+                
+            if(line == "<TEXT>"):
+                # Now Enter <TEXT></TEXT> 
+                in_content_flag = True
             elif(line == "</TEXT>"):
                 # Now Exit <TEXT></TEXT>
-                in_doc_flag = False
+                in_content_flag = False
+                content = re.sub(r"<.*?>", "", content)
+                # print("docNO:", docNo)
+                # print("content: ", content)
                 return [docNo, content]
-            elif(in_doc_flag):
-                # Now Inside <TEXT></TEXT>
-                if line.startswith("<DOCNO>"):
-                    docNo = re.sub(r"</?DOCNO>", "", line).strip()
-                else:
-                    content+=line+" "
+            
+            if(line.startswith("<DOCNO>")):
+                docNo = re.sub(r"</?DOCNO>", "", line).strip()
+                # docNo = docNo.replace("<DOCNO>", "").replace("</DOCNO>", "").strip()
+            elif(in_content_flag):
+                content+=line+" "
         
         self.file.close()
-        return None
+        return ["", ""]

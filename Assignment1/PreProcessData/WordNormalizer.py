@@ -8,12 +8,13 @@ from nltk.stem import PorterStemmer
 class WordNormalizer:
 
     def __init__(self):
-        return
+        # Initialize Stemmer
+        self.stemmer = PorterStemmer()
 
     def lowercase(self, word):
         # Transform the word uppercase characters into lowercase.
-        return word
+        return word.lower()
 
     def stem(self, word):
         # Return the stemmed word with PorterStemmer imported previously.
-        return word
+        return self.stemmer.stem(word)

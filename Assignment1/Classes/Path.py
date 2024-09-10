@@ -6,7 +6,7 @@ DataTextDir = "data//output//docset.trectext"
 DataWebDir = "data//output//docset.trecweb"
 
 # address of stopword list.
-StopwordDir="data//input//stopword.txt"
+StopwordDir="data//input//stopwords.txt"
 
 # uncompleted address of preprocessed corpus.
 ResultHM1="data//result."
