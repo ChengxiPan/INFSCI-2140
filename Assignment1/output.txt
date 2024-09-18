@@ -1,0 +1,5 @@
+Total : 503473 docs
+Time to index text corpus:  0:27:18.355848
+
+Total : 198362 docs
+Time to index web corpus: 0:13:00.864175
