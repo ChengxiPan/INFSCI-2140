@@ -1,6 +1,5 @@
 import Classes.Path as Path
 import re
-from tqdm import tqdm
 
 # Efficiency and memory cost should be paid with extra attention.
 # Essential private methods or variables can be added.
@@ -18,33 +17,28 @@ class TrectextCollection:
         # 1. When called, this API processes one document from corpus, and returns its TEXT number and content.
         # 2. When no document left, return null, and close the file.
         docNo = ""
-        content = ""
+        content = []
         in_content_flag = False
         
-        for line in tqdm(self.file, desc="TrectestCollection"):
+        for line in self.file:
             line = line.strip()# remove blank
             if(line == "<DOC>"):
-                # Now Enter <DOC></DOC>
-                # reInit
+                # Now in <DOC></DOC>
                 docNo = ""
-                content = ""
-                
+                content = []
             if(line == "<TEXT>"):
-                # Now Enter <TEXT></TEXT> 
+                # Now in <TEXT></TEXT> 
                 in_content_flag = True
             elif(line == "</TEXT>"):
                 # Now Exit <TEXT></TEXT>
                 in_content_flag = False
-                content = re.sub(r"<.*?>", "", content)
-                # print("docNO:", docNo)
-                # print("content: ", content)
+                content = ' '.join(content)
                 return [docNo, content]
             
             if(line.startswith("<DOCNO>")):
-                docNo = re.sub(r"</?DOCNO>", "", line).strip()
-                # docNo = docNo.replace("<DOCNO>", "").replace("</DOCNO>", "").strip()
+                docNo = line.split(' ')[1] # extract docNo  
             elif(in_content_flag):
-                content+=line+" "
+                content.append(line)
         
         self.file.close()
         return ["", ""]

@@ -12,13 +12,9 @@ class StopWordRemover:
         # Initialize a set to store stop words.
         self.stopwords = set()
 
-        # Open the file containing stopwords.
         with open(Path.StopwordDir, 'r') as file:
-            # Read each line, strip whitespace, and add the word to the stopwords set.
-            for line in file:
-                word = line.strip()
-                if word:  # Ensure no empty lines are added.
-                    self.stopwords.add(word)
+            for word in file.readlines():
+                self.stopwords.add(word.strip())
 
     def isStopword(self, word):
         # Return true if the input word is a stopword, or false if not.

@@ -53,7 +53,7 @@ def PreProcess(typeCollection):
 
 
 startTime = datetime.datetime.now()
-# PreProcess("trectext")
+PreProcess("trectext")
 endTime = datetime.datetime.now()
 print ("Time to index text corpus: ", endTime - startTime)
 startTime = datetime.datetime.now()

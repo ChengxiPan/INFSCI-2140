@@ -1,5 +1,4 @@
 import Classes.Path as Path
-from tqdm import tqdm
 import re
 
 # Efficiency and memory cost should be paid with extra attention.
@@ -20,33 +19,32 @@ class TrecwebCollection:
         # 2. When no document left, return null, and close the file.
         # 3. the HTML tags should be removed in document content.
         docNo = ""
-        content = ""
+        content = []
         in_content_flag = False
         
-        for line in tqdm(self.file, desc="TrecwebCollection"):
+        for line in self.file:
         # for line in self.file:
             line = line.strip()# remove blank
             if(line == "<DOC>"):
-                # Now Enter <DOC></DOC>
-                # reInit
+                # Now in <DOC></DOC>
                 docNo = ""
-                content = ""
+                content = []
                 
             if(line == "</DOCHDR>"):
-                # Now Enter </DOCHDR></DOC>
+                # Now in </DOCHDR></DOC>
                 in_content_flag = True
             elif(line == "</DOC>"):
                 # Now Exit </DOCHDR></DOC>
                 in_content_flag = False
-                print(f"content: {content}\n")
+                content = ' '.join(content)
                 return [docNo, content]
             
             if(line.startswith("<DOCNO>")):
-                docNo = re.sub(r"</?DOCNO>", "", line).strip()
+                docNo = line.split(' ')[1] # extract docNo
                 # docNo = docNo.replace("<DOCNO>", "").replace("</DOCNO>", "").strip()
             elif(in_content_flag):
-                content+=line+" "
-                content = re.sub(r"<.*?>", "", content)
+                line = re.sub(r"<.*?>", "", line)
+                content.append(line)
         
         self.file.close()
         return ["", ""]
