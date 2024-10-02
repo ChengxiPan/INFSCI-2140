@@ -4,8 +4,13 @@ import Classes.Path as Path
 class PreprocessedCorpusReader:
 
     def __init__(self, type):
+        self.file_path = Path.ResultHM1 + type
+        self.file = open(self.file_path, 'r', encoding='utf-8')
         return
 
     # Read a line for docNo from the corpus, read another line for the content, and return them in [docNo, content].
     def nextDocument(self):
-        return
+        # Read docNo and content from self.file
+        docNo = self.file.readline().strip()
+        content = self.file.readline().strip()
+        return  [docNo, content]
