@@ -13,4 +13,9 @@ class PreprocessedCorpusReader:
         # Read docNo and content from self.file
         docNo = self.file.readline().strip()
         content = self.file.readline().strip()
+        # break when the end of the file is reached
+        if not docNo:
+            self.file.close()
+            return None
+        # print(f"docNo: {docNo}, content: {content}\n")
         return  [docNo, content]
