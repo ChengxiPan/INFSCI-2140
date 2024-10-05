@@ -5,6 +5,6 @@ __pycache__
 .DS_Store
 *.ipynb
 *.out
-*.json
+*.json*
 !README.txt
 !output.txt
