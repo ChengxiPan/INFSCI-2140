@@ -1,5 +1,6 @@
 import Classes.Path as Path
 import json
+import os
 # import jsonlines
 
 class MyIndexWriter:
@@ -18,8 +19,10 @@ class MyIndexWriter:
             self.dictionary_file = open(f"{Path.IndexTextDir}/dictionary_{self.type}.jsonl", "w")
             self.posting_file = open(f"{Path.IndexTextDir}/posting_{self.type}.jsonl", "w")
 
-        
-        return
+        if not os.path.exists(Path.IndexWebDir):
+            os.makedirs(Path.IndexWebDir)
+        if not os.path.exists(Path.IndexTextDir):
+            os.makedirs(Path.IndexTextDir)
 
     def index(self, docNo, content):
         # For every docNo, assign a unique docId
