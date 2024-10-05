@@ -17,7 +17,7 @@ class MyIndexWriter:
 
         if type == "trecweb":
             self.index_file = open(f"{Path.IndexWebDir}/index_{self.type}.txt", "w")
-            self.dictionary_file = open(f"{Path.IndexWebDir}/posting_{self.type}.json", "w")
+            self.posting_file = open(f"{Path.IndexWebDir}/posting_{self.type}.json", "w")
             self.docid_map_file_path = f"{Path.IndexWebDir}/docid_map_{self.type}.txt"
         elif type == "trectext":
             self.index_file = open(f"{Path.IndexTextDir}/index_{self.type}.txt", "w")
