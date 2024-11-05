@@ -17,6 +17,7 @@ class MyIndexReader:
         if type=="trectext":
             path_dir = Path.IndexTextDir
         self.searcher = index.open_dir(path_dir).searcher()
+        self.index = index.open_dir(path_dir)
 
     # Return the integer DocumentID of input string DocumentNo.
     def getDocId(self, docNo):
@@ -61,4 +62,5 @@ class MyIndexReader:
     
     # Return the total number of documents in the collection.
     def getTotalDocCount(self):
-        return self.searcher.doc_count_all()
+        # Total number of documents in the collection
+        return self.index.field_length("doc_content")
