@@ -50,7 +50,7 @@ class ExtractQuery:
                     # Process the query after extracting both num and title
                     if current_query_id and current_query_content:
                         processed_query = self.process_query(current_query_content)  # Process the query
-                        print(f"Query ID: {current_query_id}, Query Content: {processed_query}")
+                        # print(f"Query ID: {current_query_id}, Query Content: {processed_query}")
 
                         # Check for unknown terms
                         for term in processed_query:
@@ -58,7 +58,7 @@ class ExtractQuery:
                                 # Delete the query if an unknown term is detected
                                 processed_query.remove(term)
                         
-                        print(f"Processed Query: {processed_query}")
+                        # print(f"Processed Query: {processed_query}")
                         query = Query()  # Create an instance of Query
                         query.setTopicId(current_query_id)  # Set the query ID
                         query.setQueryContent(processed_query)  # Set the processed query content

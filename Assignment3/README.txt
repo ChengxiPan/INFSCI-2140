@@ -1,0 +1,145 @@
+1. Quick Start
+    Environment: conda 24.1.2, Python 3.12.3
+    Command: 
+        - python3 main.py
+    Estimated Time to Run: <1 min
+
+2. Terminal Output
+    You can also see it in output.txt
+
+    901      ['hong', 'kong', 'econom', 'singapor']
+    901  Q0  XIE19970621.0096   1   0.47281787958901983  MYRUN
+    901  Q0  XIE19970701.0287   2   0.4722647153663604  MYRUN
+    901  Q0  XIE19960430.0151   3   0.47003212413846157  MYRUN
+    901  Q0  XIE19970709.0206   4   0.46690294834569046  MYRUN
+    901  Q0  XIE19970918.0245   5   0.46142144907089394  MYRUN
+    901  Q0  XIE19971110.0220   6   0.4605003644684025  MYRUN
+    901  Q0  XIE19960720.0233   7   0.45849190842442294  MYRUN
+    901  Q0  XIE19970630.0081   8   0.4581371384109565  MYRUN
+    901  Q0  XIE19960919.0038   9   0.4523379341272735  MYRUN
+    901  Q0  XIE19970602.0139   10   0.4519322995241013  MYRUN
+    901  Q0  XIE19971020.0119   11   0.44939954892248485  MYRUN
+    901  Q0  XIE19970304.0184   12   0.44395488783395387  MYRUN
+    901  Q0  XIE19970701.0017   13   0.44258670838620007  MYRUN
+    901  Q0  XIE19961214.0170   14   0.4422034780787649  MYRUN
+    901  Q0  XIE19970507.0152   15   0.442033993227579  MYRUN
+    901  Q0  XIE19970623.0142   16   0.44187095186832265  MYRUN
+    901  Q0  XIE19960823.0157   17   0.44048284197729115  MYRUN
+    901  Q0  XIE19960508.0140   18   0.4403743717351399  MYRUN
+    901  Q0  XIE19970730.0087   19   0.44018447861156407  MYRUN
+    901  Q0  XIE19970621.0072   20   0.4397102686571138  MYRUN
+    902      ['homosexu', 'accept', 'europ']
+    902  Q0  XIE19960828.0241   1   0.16058347230773345  MYRUN
+    902  Q0  XIE19960824.0228   2   0.15811067751966268  MYRUN
+    902  Q0  XIE19960127.0031   3   0.14502597077488089  MYRUN
+    902  Q0  XIE19960122.0067   4   0.14294597662380296  MYRUN
+    902  Q0  XIE19960117.0259   5   0.14239192245084248  MYRUN
+    902  Q0  XIE19970923.0117   6   0.14239192245084248  MYRUN
+    902  Q0  NYT20000513.0028   7   0.14184214668848402  MYRUN
+    902  Q0  XIE19970201.0163   8   0.1414132241719479  MYRUN
+    902  Q0  XIE19970129.0238   9   0.14091175883800483  MYRUN
+    902  Q0  XIE19970709.0214   10   0.14081013429969164  MYRUN
+    902  Q0  XIE19960910.0182   11   0.1392513505251563  MYRUN
+    902  Q0  XIE19960107.0268   12   0.1391557423951415  MYRUN
+    902  Q0  XIE19960217.0160   13   0.1391557423951415  MYRUN
+    902  Q0  XIE19971007.0254   14   0.1391557423951415  MYRUN
+    902  Q0  XIE19960229.0020   15   0.13873939703057853  MYRUN
+    902  Q0  XIE19970528.0226   16   0.13863062638610324  MYRUN
+    902  Q0  XIE19961024.0031   17   0.13810945861773444  MYRUN
+    902  Q0  XIE19971009.0155   18   0.13759219472778036  MYRUN
+    902  Q0  XIE19970708.0235   19   0.13655366320383971  MYRUN
+    902  Q0  XIE19961119.0148   20   0.13639829574759632  MYRUN
+    903      ['star', 'trek', 'gener']
+    903  Q0  NYT19990105.0256   1   0.5317993369951055  MYRUN
+    903  Q0  NYT19990628.0345   2   0.5317993369951055  MYRUN
+    903  Q0  XIE19960316.0173   3   0.50414577147136  MYRUN
+    903  Q0  NYT19990402.0349   4   0.50414577147136  MYRUN
+    903  Q0  NYT19991003.0483   5   0.4982102041229344  MYRUN
+    903  Q0  XIE19961209.0183   6   0.4981821288934902  MYRUN
+    903  Q0  XIE19960515.0240   7   0.49816775837090904  MYRUN
+    903  Q0  NYT20000722.0035   8   0.49816775837090904  MYRUN
+    903  Q0  XIE19960101.0088   9   0.4943052251666926  MYRUN
+    903  Q0  XIE19971008.0311   10   0.4923298549524999  MYRUN
+    903  Q0  XIE19971122.0036   11   0.490414174583035  MYRUN
+    903  Q0  XIE19960323.0096   12   0.4884236049524999  MYRUN
+    903  Q0  XIE19971022.0251   13   0.4868305812465399  MYRUN
+    903  Q0  XIE19970526.0206   14   0.48289824853578545  MYRUN
+    903  Q0  XIE19970809.0055   15   0.48289824853578545  MYRUN
+    903  Q0  XIE19970817.0127   16   0.4810551254497709  MYRUN
+    903  Q0  XIE19971002.0150   17   0.4810551254497709  MYRUN
+    903  Q0  NYT19980918.0296   18   0.47922601850889734  MYRUN
+    903  Q0  XIE19960522.0187   19   0.47922601850889734  MYRUN
+    903  Q0  NYT19990910.0373   20   0.4774107684387878  MYRUN
+    904      ['progress']
+    904  Q0  XIE19970302.0144   1   0.06934940483605653  MYRUN
+    904  Q0  XIE19961105.0192   2   0.060116495908179184  MYRUN
+    904  Q0  NYT19990309.0076   3   0.05951389186939403  MYRUN
+    904  Q0  NYT19990309.0077   4   0.05951389186939403  MYRUN
+    904  Q0  NYT19990310.0198   5   0.05951389186939403  MYRUN
+    904  Q0  NYT19990310.0199   6   0.05951389186939403  MYRUN
+    904  Q0  XIE19960105.0012   7   0.05828348434630201  MYRUN
+    904  Q0  XIE19971225.0050   8   0.05819089041254387  MYRUN
+    904  Q0  XIE19961013.0085   9   0.05804146925289872  MYRUN
+    904  Q0  XIE19970308.0194   10   0.05741110179726105  MYRUN
+    904  Q0  XIE19970429.0008   11   0.05716184931703196  MYRUN
+    904  Q0  XIE19961010.0123   12   0.05715434676515703  MYRUN
+    904  Q0  XIE19961105.0131   13   0.05706970597185222  MYRUN
+    904  Q0  XIE19970110.0135   14   0.056114928999870195  MYRUN
+    904  Q0  NYT19980814.0443   15   0.05574378107223785  MYRUN
+    904  Q0  NYT19980814.0444   16   0.05574378107223785  MYRUN
+    904  Q0  NYT19980814.0445   17   0.05574378107223785  MYRUN
+    904  Q0  NYT19980814.0446   18   0.05574378107223785  MYRUN
+    904  Q0  XIE19970609.0016   19   0.055492682959299836  MYRUN
+    904  Q0  XIE19960617.0177   20   0.0547527805198425  MYRUN
+    time to load index & retrieve the token:  0:00:56.784560
+
+3. File Structure and Description
+    src
+    ├── Classes
+    │   ├── Document.py: Basic class for Document
+    │   ├── Path.py
+    │   ├── Query.py: Basic class for Query
+    ├── IndexingWithWhoosh
+    │   ├── MyIndexReader.py: Read index and retrieve the token
+    │   ├── MyIndexWriter.py: Write index
+    │   ├── PreProcessedCorpusReader.py
+    ├── Search
+    │   ├── ExtractQuery.py: Extract query from topics.txt
+    │   ├── QueryRetreivalModel.py: Implement the query retrieval model
+    ├── data
+    │   ├── indextext
+    │   │   ├── MAIN_WRITELOCK
+    │   │   ├── MAIN_olgy2cnsvua86in6.seg
+    │   │   └── _MAIN_1.toc
+    │   ├── indexweb
+    │   │   ├── MAIN_WRITELOCK
+    │   │   ├── MAIN_drfwmld53wlmbw1p.seg
+    │   │   └── _MAIN_1.toc
+    │   ├── result.trectext
+    │   ├── result.trecweb
+    │   ├── stopwords.txt
+    │   └── topics.txt
+    ├── main.py
+    └── output.txt
+
+
+3. Implementation Details
+
+    a. task1
+    In this section I completed ExtractQuery.py.
+    Queries are extracted and preprocessed from TREC style topic file topics.txt. Topics are behind the <title> tag and queryid are in the <num> tag.
+
+    b. task2
+    In this section I completed QueryRetreivalModel.py
+    The function retrieveQuery is implemented to retrieve the top N documents for a given query:
+    Input: A Query object and topN, the number of top documents to retrieve.
+    Tokenizes and normalizes the query.
+    Initializes a score dictionary to store document scores.
+    Uses a Dirichlet smoothing formula with a parameter mu (set to 2000) to calculate the score for each document based on term frequencies and collection probabilities.
+    Output: Returns a list of Document objects, sorted by their relevance scores.
+
+    μ can be set in QueryRetreivalModel.py, called mu. In my work I set μ = 1800
+    Reasons:
+        - Avoiding Zero Probabilities: A μ value of 1800 provides enough smoothing to prevent the assignment of zero probability to terms that do not appear in the training set, which is crucial for handling rare or unseen terms like "Dysphagia" in the test topics.
+        - Data Dependency: While ensuring smoothing, μ = 1800 is not excessively large, which allows the model to still rely on the actual term frequencies from the collection, preserving the specificity of the data.
+

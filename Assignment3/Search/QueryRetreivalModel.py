@@ -20,7 +20,7 @@ class QueryRetrievalModel:
         doc_scores = {}
 
         # Set the value for mu, which is a parameter for the scoring function
-        mu = 200
+        mu = 2000
 
         # Calculate collection probability (you may have a different method to calculate this)
         total_doc_count = self.indexReader.getTotalDocCount()
@@ -36,7 +36,7 @@ class QueryRetrievalModel:
             # Iterate through the posting list
             for doc_id, freq in posting_list.items():
                 doc_length = self.indexReader.getDocLength(doc_id)
-                score = self._calculate_score(freq, doc_length, len(posting_list), collection_prob[term], mu)
+                score = self._calculate_score(freq, doc_length, collection_prob[term], mu)
 
                 if doc_id in doc_scores:
                     doc_scores[doc_id] += score
@@ -56,11 +56,11 @@ class QueryRetrievalModel:
 
 
 
-    def _calculate_score(self, term_freq, doc_length, doc_freq):
-        # TF-IDF scoring formula
-        tf = term_freq / doc_length
-        idf = math.log((self.indexReader.getTotalDocCount() + 1) / (doc_freq + 1)) + 1
-        return tf * idf
+    # def _calculate_score(self, term_freq, doc_length, doc_freq):
+    #     # TF-IDF scoring formula
+    #     tf = term_freq / doc_length
+    #     idf = math.log((self.indexReader.getTotalDocCount() + 1) / (doc_freq + 1)) + 1
+    #     return tf * idf
 
     def _create_document(self, doc_no, score):
         # Assuming Document class has id and score attributes
@@ -70,7 +70,7 @@ class QueryRetrievalModel:
         # print(f"DOCID: {doc_id}, SCORE: {score}")
         return doc
     
-    def _calculate_score(self, term_freq, doc_length, doc_freq, collection_prob, mu):
+    def _calculate_score(self, term_freq, doc_length, collection_prob, mu):
     # Dirichlet smoothing score
         smoothed_prob = (term_freq + mu * collection_prob) / (doc_length + mu)
         return smoothed_prob
