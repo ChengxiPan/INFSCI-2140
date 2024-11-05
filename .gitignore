@@ -8,3 +8,7 @@ __pycache__
 *.json*
 !README.txt
 !output.txt
+*.cpp
+*.o
+*.doc*
+*MAIN*

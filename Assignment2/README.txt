@@ -8,7 +8,7 @@
         - ./data/indexweb/dictionary_trecweb.jsonl
         - ./data/indexweb/posting_trecweb.jsonl
     Terminal Output: see ./output.txt
-    Estimated Time to Run: 7 min
+    Estimated Time to Run: 5 min
 
 2. File Structure and Description
     src

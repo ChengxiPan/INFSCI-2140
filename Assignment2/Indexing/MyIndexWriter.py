@@ -11,18 +11,19 @@ class MyIndexWriter:
         self.buffer_limit = 30000  # Limit for the number of documents in memory before flushing
         self.buffer_count = 0  # Track the number of documents processed so far
         self.type = type
-
+        
+        if not os.path.exists(Path.IndexWebDir):
+            os.makedirs(Path.IndexWebDir)
+        if not os.path.exists(Path.IndexTextDir):
+            os.makedirs(Path.IndexTextDir)
+        
         if type == "trecweb":
             self.dictionary_file = open(f"{Path.IndexWebDir}/dictionary_{self.type}.jsonl", "w") # [term, docId, freq]
             self.posting_file = open(f"{Path.IndexWebDir}/posting_{self.type}.jsonl", "w") # docNo: docId
         elif type == "trectext":
             self.dictionary_file = open(f"{Path.IndexTextDir}/dictionary_{self.type}.jsonl", "w")
             self.posting_file = open(f"{Path.IndexTextDir}/posting_{self.type}.jsonl", "w")
-
-        if not os.path.exists(Path.IndexWebDir):
-            os.makedirs(Path.IndexWebDir)
-        if not os.path.exists(Path.IndexTextDir):
-            os.makedirs(Path.IndexTextDir)
+            
 
     def index(self, docNo, content):
         # For every docNo, assign a unique docId
