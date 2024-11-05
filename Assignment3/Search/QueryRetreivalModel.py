@@ -20,7 +20,7 @@ class QueryRetrievalModel:
         doc_scores = {}
 
         # Set the value for mu, which is a parameter for the scoring function
-        mu = 1500 
+        mu = 200
 
         # Calculate collection probability (you may have a different method to calculate this)
         total_doc_count = self.indexReader.getTotalDocCount()
