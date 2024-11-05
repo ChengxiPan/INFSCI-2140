@@ -31,8 +31,11 @@ class ExtractQuery:
         for result_file in ['data/result.trectext', 'data/result.trecweb']:
             with open(result_file, 'r', encoding='utf-8') as file:
                 for line_number, line in enumerate(file):
-                    if line_number % 2 == 0:  # Process only even lines because only even lines are documents
-                        known_terms.add(line.strip())
+                    if line_number % 2 != 0:  # Process only even lines because only even lines are documents
+                        known_terms.update(line.strip().split())
+                        # print(type(known_terms), len(known_terms))
+                        # break
+                        # print(known_terms)
 
         # Read the topic file
         with open(self.topic_file_path, 'r', encoding='utf-8') as file:
@@ -46,13 +49,16 @@ class ExtractQuery:
 
                     # Process the query after extracting both num and title
                     if current_query_id and current_query_content:
-                        processed_query, unknown_terms = self.process_query(current_query_content)  # Process the query
+                        processed_query = self.process_query(current_query_content)  # Process the query
+                        print(f"Query ID: {current_query_id}, Query Content: {processed_query}")
 
                         # Check for unknown terms
-                        for term in unknown_terms:
+                        for term in processed_query:
                             if term not in known_terms:
-                                print(f"Unknown term detected: {term}") 
-
+                                # Delete the query if an unknown term is detected
+                                processed_query.remove(term)
+                        
+                        print(f"Processed Query: {processed_query}")
                         query = Query()  # Create an instance of Query
                         query.setTopicId(current_query_id)  # Set the query ID
                         query.setQueryContent(processed_query)  # Set the processed query content
@@ -70,21 +76,15 @@ class ExtractQuery:
         tokenizer = re.compile(r'\b\w+\b')
         tokens = tokenizer.findall(query.lower())  
         processed_tokens = []
-        unknown_terms = []
 
         for token in tokens:
             if token not in self.stopwords:
                 stemmed_token = self.stemmer.stem(token)
                 processed_tokens.append(stemmed_token)
-                if self.is_unknown_term(stemmed_token):
-                    unknown_terms.append(stemmed_token)
         
-        return ' '.join(processed_tokens), unknown_terms
+        # return list of processed tokens
+        return processed_tokens
 
-    def is_unknown_term(self, term):
-        # Dummy method to detect unknown terms
-        # Replace with actual logic to check if the term exists in the collection
-        return False
 
     # Return extracted queries with class Query in a list.
     def getQueries(self):

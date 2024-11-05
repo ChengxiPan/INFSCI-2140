@@ -14,7 +14,7 @@ class QueryRetrievalModel:
     # Returned documents should be a list of Document.
     def retrieveQuery(self, query, topN):
         # Tokenize and normalize the query
-        query_terms = query.getQueryContent().split()
+        query_terms = query.getQueryContent()
 
         # Initialize a dictionary to store document scores
         doc_scores = {}
