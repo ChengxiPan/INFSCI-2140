@@ -44,18 +44,21 @@ class MyIndexReader:
 
     # Return posting list in form of {documentID:frequency}.
     def getPostingList(self, token):
+    # Retrieve documents containing the token and their frequencies
         results = self.searcher.search(Term("doc_content", token), limit=None)
         postList = {}
         for result in results:
-            words = self.searcher.stored_fields(result.docnum)["doc_content"].split(" ")
-            count=0
-            for word in words:
-                if word==token:
-                    count+=1
-            postList[result.docnum]=count
+            doc_id = result.docnum
+            doc_content = self.searcher.stored_fields(doc_id)["doc_content"]
+            frequency = doc_content.split().count(token)
+            postList[doc_id] = frequency
         return postList
 
     # Return the length of the requested document.
     def getDocLength(self, docId):
         words = self.searcher.stored_fields(docId)["doc_content"].split(" ")
         return len(words)
+    
+    # Return the total number of documents in the collection.
+    def getTotalDocCount(self):
+        return self.searcher.doc_count_all()

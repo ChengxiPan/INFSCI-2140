@@ -14,7 +14,7 @@ if __name__ == "__main__":
     queries= extractor.getQueries()
     for query in queries:
         print(query.topicId,"\t",query.queryContent)
-        break
+        # break
         results = search.retrieveQuery(query, 20)
         rank = 1
         for result in results:
