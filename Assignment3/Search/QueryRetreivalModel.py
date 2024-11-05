@@ -49,7 +49,7 @@ class QueryRetrievalModel:
                 else:
                     doc_scores[doc_id] = score
                     
-                print(f"Docid: {doc_id}, DocLength: {doc_length}, Freq: {freq}, CollectionProb: {collection_prob[term]}")
+                # print(f"Docid: {doc_id}, DocLength: {doc_length}, Freq: {freq}, CollectionProb: {collection_prob[term]}")
 
         # Sort documents by score in descending order and select top N
         sorted_docs = sorted(doc_scores.items(), key=lambda item: item[1], reverse=True)[:topN]
@@ -81,4 +81,3 @@ class QueryRetrievalModel:
     # Dirichlet smoothing score
         smoothed_prob = (term_freq + mu * collection_prob) / (doc_length + mu)
         return smoothed_prob
-
